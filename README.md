@@ -85,23 +85,59 @@ cnn_main.py: Run this file to train and test CNN (MobileNet-v2) model and output
 
 transformer_main.py: Run this file to train and test Transformer model (on extracted CNN features) and output CNN+Transformer model predictions to transformer_test_all_outs[cvphase].csv
 
---------
-**SETUP**
+## SETUP
 
-**HARDWARE:** (used in this project to develop models)
+### HARDWARE:
+* GPU Tesla T4  used in this project to develop models
+* Current: 
+```
+$ nvidia-smi -q
 
-GPU Tesla T4
+==============NVSMI LOG==============
 
+Timestamp                                 : Thu Jul 21 21:52:47 2022
+Driver Version                            : 470.129.06
+CUDA Version                              : 11.4
 
-**SOFTWARE:** (python package requirements are listed in requirements.txt):
+Attached GPUs                             : 1
+GPU 00000000:01:00.0
+    Product Name                          : NVIDIA GeForce RTX 3080 Laptop GPU
+    Product Brand                         : GeForce
+    Display Mode                          : Enabled
+    Display Active                        : Enabled
+    Persistence Mode                      : Disabled
 
+FB Memory
+        Total                             : 16116 MiB
+``` 
+
+### SOFTWARE
+
+* Current machine OS:
+```
+$ hostnamectl
+ Operating System: Ubuntu 20.04.3 LTS
+            Kernel: Linux 5.15.0-41-generic
+      Architecture: x86-64
+```
+
+[packages versions](dependencies/)
+```
+$ python testing_versions.py
+python: 3.10.5 | packaged by conda-forge | (main, Jun 14 2022, 07:04:59) [GCC 10.3.0]
+opencv: 4.6.0
+albumentations: 1.2.1
+torch: 1.12.0
+cuda_is_available: True
+cuda version: 11.3
+cuda.device_count  1
+```
+
+* Orginals (python package requirements are listed in requirements.txt):
+```
 OS: Debian GNU/Linux 10
-
 CUDA Version 11.0
-
 Pytorch 1.6.0
-
 Python 3.8.6
-
-Additional libraries:
-- albumentations
+albumentations
+```

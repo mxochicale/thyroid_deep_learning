@@ -1,0 +1,42 @@
+## USAGE
+## cd $HOME/repositories/echocardiography/dependencies/virtual-environment
+## conda update -n base -c defaults conda  ## UPDATE CONDA
+## conda list -n transformersVE # show list of installed packages
+## conda env create -f ve.yml   		    ## INSTALL
+## conda env update --file ve.yml --prune  	## UPDATE
+## conda activate transformersVE			    ## ACTIVATE
+## conda remove -n transformersVE --all   ## REMOVE
+
+name: transformersVE
+channels:
+  - pytorch # https://anaconda.org/pytorch/torchvision
+  #- nvidia
+  - defaults
+  #- jmcmurray #https://anaconda.org/jmcmurray/json
+  - anaconda # seaborn; pandas; scikit-learn; jupyter; h5py
+  - conda-forge # albumentations; torchinfo; ipywidgets
+dependencies:
+  - python #=3.8.*
+  - pytorch #=1.9.* #1.9.* with cudatoolkit=11.1#OK
+  - torchvision #=0.10.0
+  - cudatoolkit #=11.4.*
+  - matplotlib
+  - numpy
+  - pip
+  - albumentations #1.2.1 installed on Thu 21 Jul 21:45:34 BST 2022
+  #- json
+  #- pyyaml
+  #- tqdm
+  - pillow
+  - notebook #=6.*
+  #- jupyter_contrib_nbextensions # A good overview over other extensions: https://towardsdatascience.com/jupyter-notebook-extensions-517fa69d2231
+  - jupyter
+  #- seaborn=0.11.1 # 0.11.2 will creat https://github.com/Baukebrenninkmeijer/table-evaluator/issues/26
+  #- pandas=1.*
+  - torchinfo
+  #- ipywidgets
+  - h5py #=3.* # current version 3.6.0  ##1.10.4 pretus-compatibility
+  ##ERROR- scikit-learn=* #https://anaconda.org/anaconda/scikit-learn SOLUTION within the VE: conda install -n rt-ai-echo-VE scikit-learn
+  - pip:
+     #- pydicom
+     - opencv-python
