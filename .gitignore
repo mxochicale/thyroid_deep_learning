@@ -11,5 +11,6 @@
 ## ignores vim temporal files
 **/*.swp
 
-## ignores dataset files
-**/dataset.hdf5 #(36.42 GB)
+## ignores dataset files [dataset.hdf5 #(36.42 GB)]
+**/dataset.hdf5
+**/*.hdf5.part

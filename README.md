@@ -85,11 +85,19 @@ Download Thyroid Ultrasound Cine-clip, containing ultrasound cine-clip images, r
 See further details [data](data).
 
 ## How to run
-Edit the parser arguments in cnn_main.py and transformer_main.py with your own home directory and paths to images, labels and masks.
+1. Edit the parser arguments in cnn_main.py and transformer_main.py with your own home directory and paths to images, labels and masks.
 
-cnn_main.py: Run this file to train and test CNN (MobileNet-v2) model and output CNN model predictions to cnn_test_all_outs[cvphase].csv
+* `cnn_main.py`
+Run this file to train and test CNN (MobileNet-v2) model and output CNN model predictions to cnn_test_all_outs[cvphase].csv
+```
+cd $HOME/repositories/thyroid_deep_learning/
+export PYTHONPATH=$HOME/repositories/thyroid_deep_learning/ #set PYTHONPATH environment variable
+conda activate transformersVE
+python cnn_main.py
+```
 
-transformer_main.py: Run this file to train and test Transformer model (on extracted CNN features) and output CNN+Transformer model predictions to transformer_test_all_outs[cvphase].csv
+* `transformer_main.py` 
+Run this file to train and test Transformer model (on extracted CNN features) and output CNN+Transformer model predictions to transformer_test_all_outs[cvphase].csv
 
 ## Setup
 
