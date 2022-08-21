@@ -4,7 +4,16 @@ The CNN+Transformer architecture consists of a MobileNetv2 convolutional neural 
 
 **NOTE:** The content of this code repository is for research purposes only and is not intended for clinical use of any kind, including but not limited to diagnosis or prognosis.
 
-## FILES 
+## Paper
+_Toward Reduction in False-Positive Thyroid Nodule Biopsies with a Deep Learning–based Risk Stratification System Using US Cine-Clip Images_
+Rikiya Yamashita, Tara Kapoor, Minhaj Nur Alam, Alfiia Galimzianova, Saad Ali Syed, Mete Ugur Akdogan, Emel Alkim, Andrew Louis Wentland, Nikhil Madhuripan, Daniel Goff, Victoria Barbee, Natasha Diba Sheybani, Hersh Sagreiya, Daniel L. Rubin, and Terry S. Desser
+Radiology: Artificial Intelligence 2022 4:3   
+
+Published Online: May 11 2022  
+DOI: https://doi.org/10.1148/ryai.210174  
+google-scholar: https://scholar.google.com/scholar?oi=bibs&hl=en&cluster=3541439675105718208 
+
+## Files
 
 **configtest.yaml:**
 Contains pre-set variables for CNN model development (e.g. learning rate, batch size) for model as well as variables updated during model training automatically (e.g. probability prediction threshold, lowest validation loss epoch). Do not manually update.
@@ -71,6 +80,9 @@ Function save_networks for saving model weights.
 Functions calc_test_stats and plot_test_stats.
 Function analyze_test_outputs for calculating AUROC and other stats and saving model outputs to csv files.
 
+## Datasets
+Download Thyroid Ultrasound Cine-clip, containing ultrasound cine-clip images, radiologist-annotated segmentations, patient demographics, lesion size and location, TI-RADS descriptors, and histopathological diagnoses at https://stanfordaimi.azurewebsites.net/datasets/a72f2b02-7b53-4c5d-963c-d7253220bfd5   
+See further details [data](data).
 
 ## How to run
 Edit the parser arguments in cnn_main.py and transformer_main.py with your own home directory and paths to images, labels and masks.

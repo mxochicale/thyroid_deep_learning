@@ -10,3 +10,6 @@
 
 ## ignores vim temporal files
 **/*.swp
+
+## ignores dataset files
+**/dataset.hdf5 #(36.42 GB)
