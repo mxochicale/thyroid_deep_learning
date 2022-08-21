@@ -1,5 +1,5 @@
 ## USAGE
-## cd $HOME/repositories/echocardiography/dependencies/virtual-environment
+## cd ../dependencies/virtual-environment
 ## conda update -n base -c defaults conda  ## UPDATE CONDA
 ## conda list -n transformersVE # show list of installed packages
 ## conda env create -f ve.yml   		    ## INSTALL

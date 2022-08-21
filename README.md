@@ -1,15 +1,10 @@
 # CNN+Transformer Model
-
-NOTE: The content of this code repository is for research purposes only and is not intended for clinical use of any kind, including but not limited to diagnosis or prognosis.
-
-
-**ABOUT**
-
-The CNN+Transformer architecture consists of a MobileNetv2 convolutional neural network (CNN) for feature extraction concatenated with a bi-layer Transformer-Encoder network.
-
+The CNN+Transformer architecture consists of a MobileNetv2 convolutional neural network (CNN) for feature extraction concatenated with a bi-layer Transformer-Encoder network.  
 ![figure2](https://user-images.githubusercontent.com/44348827/120879105-f825bb80-c575-11eb-935d-330fbcb9f16a.png)
 
-**FILES**
+**NOTE:** The content of this code repository is for research purposes only and is not intended for clinical use of any kind, including but not limited to diagnosis or prognosis.
+
+## FILES 
 
 **configtest.yaml:**
 Contains pre-set variables for CNN model development (e.g. learning rate, batch size) for model as well as variables updated during model training automatically (e.g. probability prediction threshold, lowest validation loss epoch). Do not manually update.
@@ -76,20 +71,19 @@ Function save_networks for saving model weights.
 Functions calc_test_stats and plot_test_stats.
 Function analyze_test_outputs for calculating AUROC and other stats and saving model outputs to csv files.
 
---------
-**HOW TO RUN**
 
+## How to run
 Edit the parser arguments in cnn_main.py and transformer_main.py with your own home directory and paths to images, labels and masks.
 
 cnn_main.py: Run this file to train and test CNN (MobileNet-v2) model and output CNN model predictions to cnn_test_all_outs[cvphase].csv
 
 transformer_main.py: Run this file to train and test Transformer model (on extracted CNN features) and output CNN+Transformer model predictions to transformer_test_all_outs[cvphase].csv
 
-## SETUP
+## Setup
 
 ### HARDWARE:
-* GPU Tesla T4  used in this project to develop models
-* Current: 
+* [Original] GPU Tesla T4 used in this project to develop models
+* [Current]
 ```
 $ nvidia-smi -q
 
@@ -112,8 +106,16 @@ FB Memory
 ``` 
 
 ### SOFTWARE
+* [Original] (python package requirements are listed in requirements.txt):
+```
+OS: Debian GNU/Linux 10
+CUDA Version 11.0
+Pytorch 1.6.0
+Python 3.8.6
+albumentations
+```
 
-* Current machine OS:
+* [Current] machine OS:
 ```
 $ hostnamectl
  Operating System: Ubuntu 20.04.3 LTS
@@ -121,8 +123,9 @@ $ hostnamectl
       Architecture: x86-64
 ```
 
-[packages versions](dependencies/)
 ```
+$ cd $HOME/repositories/thyroid_deep_learning/dependencies
+$ conda activate transformersVE
 $ python testing_versions.py
 python: 3.10.5 | packaged by conda-forge | (main, Jun 14 2022, 07:04:59) [GCC 10.3.0]
 opencv: 4.6.0
@@ -132,12 +135,4 @@ cuda_is_available: True
 cuda version: 11.3
 cuda.device_count  1
 ```
-
-* Orginals (python package requirements are listed in requirements.txt):
-```
-OS: Debian GNU/Linux 10
-CUDA Version 11.0
-Pytorch 1.6.0
-Python 3.8.6
-albumentations
-```
+For further detials on conda setup, see [packages versions](dependencies/)
