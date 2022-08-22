@@ -13,10 +13,10 @@ channels:
   #- nvidia
   - defaults
   #- jmcmurray #https://anaconda.org/jmcmurray/json
-  - anaconda # seaborn; pandas; scikit-learn; jupyter; h5py
-  - conda-forge # albumentations; torchinfo; ipywidgets
+  - anaconda # seaborn; pandas; scikit-learn; jupyter; h5py; libgcc
+  - conda-forge # albumentations; torchinfo; ipywidgets; pytables
 dependencies:
-  - python #=3.8.*
+  - python=3.8
   - pytorch #=1.9.* #1.9.* with cudatoolkit=11.1#OK
   - torchvision #=0.10.0
   - cudatoolkit #=11.4.*
@@ -24,6 +24,11 @@ dependencies:
   - numpy
   - pip
   - albumentations #1.2.1 installed on Thu 21 Jul 21:45:34 BST 2022
+  - hdf5
+  - h5py #=3.* # current version 3.6.0  ##1.10.4 pretus-compatibility
+  - pandas
+  - pytables
+  # - libgcc
   #- json
   #- pyyaml
   #- tqdm
@@ -35,8 +40,7 @@ dependencies:
   #- pandas=1.*
   - torchinfo
   #- ipywidgets
-  - h5py #=3.* # current version 3.6.0  ##1.10.4 pretus-compatibility
-  ##ERROR- scikit-learn=* #https://anaconda.org/anaconda/scikit-learn SOLUTION within the VE: conda install -n rt-ai-echo-VE scikit-learn
+  ##ERROR- scikit-learn=* #https://anaconda.org/anaconda/scikit-learn SOLUTION within the VE: conda install -n VE_NAME scikit-learn
   - pip:
      #- pydicom
      - opencv-python
