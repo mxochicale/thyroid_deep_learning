@@ -16,7 +16,7 @@ channels:
   - anaconda # seaborn; pandas; scikit-learn; jupyter; h5py; libgcc
   - conda-forge # albumentations; torchinfo; ipywidgets; pytables
 dependencies:
-  - python=3.8
+  - python=3.9
   - pytorch #=1.9.* #1.9.* with cudatoolkit=11.1#OK
   - torchvision #=0.10.0
   - cudatoolkit #=11.4.*

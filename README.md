@@ -93,7 +93,7 @@ Run this file to train and test CNN (MobileNet-v2) model and output CNN model pr
 cd $HOME/repositories/thyroid_deep_learning/
 export PYTHONPATH=$HOME/repositories/thyroid_deep_learning/ #set PYTHONPATH environment variable
 conda activate transformersVE
-python cnn_main.py
+python cnn_main.py --project_home_dir $HOME/repositories/thyroid_deep_learning
 ```
 
 * `transformer_main.py` 
