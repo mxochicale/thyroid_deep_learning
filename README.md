@@ -13,8 +13,11 @@ Published Online: May 11 2022
 DOI: https://doi.org/10.1148/ryai.210174  
 google-scholar: https://scholar.google.com/scholar?oi=bibs&hl=en&cluster=3541439675105718208 
 
-## Files
+## Dataset
+Download Thyroid Ultrasound Cine-clip, containing ultrasound cine-clip images, radiologist-annotated segmentations, patient demographics, lesion size and location, TI-RADS descriptors, and histopathological diagnoses at https://stanfordaimi.azurewebsites.net/datasets/a72f2b02-7b53-4c5d-963c-d7253220bfd5   
+See further details [data](data).
 
+## Files
 **configtest.yaml:**
 Contains pre-set variables for CNN model development (e.g. learning rate, batch size) for model as well as variables updated during model training automatically (e.g. probability prediction threshold, lowest validation loss epoch). Do not manually update.
 
@@ -80,9 +83,6 @@ Function save_networks for saving model weights.
 Functions calc_test_stats and plot_test_stats.
 Function analyze_test_outputs for calculating AUROC and other stats and saving model outputs to csv files.
 
-## Datasets
-Download Thyroid Ultrasound Cine-clip, containing ultrasound cine-clip images, radiologist-annotated segmentations, patient demographics, lesion size and location, TI-RADS descriptors, and histopathological diagnoses at https://stanfordaimi.azurewebsites.net/datasets/a72f2b02-7b53-4c5d-963c-d7253220bfd5   
-See further details [data](data).
 
 ## How to run
 1. Edit the parser arguments in cnn_main.py and transformer_main.py with your own home directory and paths to images, labels and masks.
@@ -99,9 +99,8 @@ python cnn_main.py --project_home_dir $HOME/repositories/thyroid_deep_learning
 * `transformer_main.py` 
 Run this file to train and test Transformer model (on extracted CNN features) and output CNN+Transformer model predictions to transformer_test_all_outs[cvphase].csv
 
-## Setup
-
-### HARDWARE:
+## Dependencies
+### Hardware:
 * [Original] GPU Tesla T4 used in this project to develop models
 * [Current]
 ```
@@ -125,7 +124,7 @@ FB Memory
         Total                             : 16116 MiB
 ``` 
 
-### SOFTWARE
+### Software
 * [Original] (python package requirements are listed in requirements.txt):
 ```
 OS: Debian GNU/Linux 10
@@ -147,12 +146,14 @@ $ hostnamectl
 $ cd $HOME/repositories/thyroid_deep_learning/dependencies
 $ conda activate transformersVE
 $ python testing_versions.py
-python: 3.10.5 | packaged by conda-forge | (main, Jun 14 2022, 07:04:59) [GCC 10.3.0]
+$ python testing_versions.py 
+python: 3.9.13 (main, Aug 25 2022, 23:26:10) 
+[GCC 11.2.0]
 opencv: 4.6.0
-albumentations: 1.2.1
-torch: 1.12.0
+torch: 1.12.1
+h5py: 3.7.0
 cuda_is_available: True
 cuda version: 11.3
 cuda.device_count  1
 ```
-For further detials on conda setup, see [packages versions](dependencies/)
+See [packages versions](dependencies/) for further details for the conda setup. 

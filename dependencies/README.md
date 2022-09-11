@@ -72,6 +72,15 @@ conda remove -n testing --all
 ```
 
 
-## Learn more
+## testing_versions.py
+
+``` 
+cd $HOME/repositories/thyroid_deep_learning/dependencies
+conda activate transformersVE
+python testing_versions.py
+
+```
+
+## References 
 * https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/20/conda/
 * https://medium.freecodecamp.org/why-you-need-python-environments-and-how-to-manage-them-with-conda-85f155f4353c
