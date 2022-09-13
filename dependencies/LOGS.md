@@ -1,4 +1,109 @@
 
+# Mon 12 Sep 15:44:25 BST 2022
+
+* Create env with default dependencies:
+```
+Pytorch 1.6.0
+Python 3.8.6
+```
+
+* ERRORS:
+```
+
+(transformersVE) mx19@sie133-lap:~/repositories/thyroid_deep_learning/dependencies$ python testing_versions.py
+Traceback (most recent call last):
+  File "testing_versions.py", line 6, in <module>
+    import h5py
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.8/site-packages/h5py/__init__.py", line 33, in <module>
+    from . import version
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.8/site-packages/h5py/version.py", line 15, in <module>
+    from . import h5 as _h5
+  File "h5py/h5.pyx", line 1, in init h5py.h5
+ImportError: /home/mx19/anaconda3/envs/transformersVE/lib/python3.8/site-packages/h5py/defs.cpython-38-x86_64-linux-gnu.so: undefined symbol: H5Pget_fapl_direct
+(transformersVE) mx19@sie133-lap:~/repositories/thyroid_deep_learning/dependencies$ python testing_versions.py
+Traceback (most recent call last):
+  File "testing_versions.py", line 7, in <module>
+    import albumentations
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.8/site-packages/albumentations/__init__.py", line 5, in <module>
+    from .augmentations import *
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.8/site-packages/albumentations/augmentations/__init__.py", line 2, in <module>
+    from .crops.functional import *
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.8/site-packages/albumentations/augmentations/crops/__init__.py", line 1, in <module>
+    from .functional import *
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.8/site-packages/albumentations/augmentations/crops/functional.py", line 10, in <module>
+    from ..geometric import functional as FGeometric
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.8/site-packages/albumentations/augmentations/geometric/__init__.py", line 1, in <module>
+    from .functional import *
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.8/site-packages/albumentations/augmentations/geometric/functional.py", line 7, in <module>
+    import skimage.transform
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.8/site-packages/skimage/transform/__init__.py", line 5, in <module>
+    from .radon_transform import (radon, iradon, iradon_sart,
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.8/site-packages/skimage/transform/radon_transform.py", line 5, in <module>
+    from ._warps import warp
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.8/site-packages/skimage/transform/_warps.py", line 7, in <module>
+    from ..measure import block_reduce
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.8/site-packages/skimage/measure/__init__.py", line 8, in <module>
+    from ._polygon import approximate_polygon, subdivide_polygon
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.8/site-packages/skimage/measure/_polygon.py", line 2, in <module>
+    from scipy import signal
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.8/site-packages/scipy/signal/__init__.py", line 309, in <module>
+    from . import _sigtools, windows
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.8/site-packages/scipy/signal/windows/__init__.py", line 41, in <module>
+    from ._windows import *
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.8/site-packages/scipy/signal/windows/_windows.py", line 7, in <module>
+    from scipy import linalg, special, fft as sp_fft
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.8/site-packages/scipy/fft/__init__.py", line 91, in <module>
+    from ._helper import next_fast_len
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.8/site-packages/scipy/fft/_helper.py", line 3, in <module>
+    from ._pocketfft import helper as _helper
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.8/site-packages/scipy/fft/_pocketfft/__init__.py", line 3, in <module>
+    from .basic import *
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.8/site-packages/scipy/fft/_pocketfft/basic.py", line 6, in <module>
+    from . import pypocketfft as pfft
+ImportError: /home/mx19/anaconda3/envs/transformersVE/lib/python3.8/site-packages/torch/lib/../../../../libstdc++.so.6: version `GLIBCXX_3.4.30' not found (required by /home/mx19/anaconda3/envs/transformersVE/lib/python3.8/site-packages/scipy/fft/_pocketfft/pypocketfft.cpython-38-x86_64-linux-gnu.so)
+(transformersVE) mx19@sie133-lap:~/repositories/thyroid_deep_learning/dependencies$ python testing_versions.py
+python: 3.8.13 (default, Mar 28 2022, 11:38:47) 
+[GCC 7.5.0]
+opencv: 4.6.0
+torch: 1.6.0
+cuda_is_available: False
+cuda version: None
+cuda.device_count  0
+(transformersVE) mx19@sie133-lap:~/repositories/thyroid_deep_learning/dependencies$ 
+
+
+```
+
+* conda list -n transformersVE 
+
+```
+
+h5py                      3.7.0           nompi_py38h8afedcf_100    conda-forge
+harfbuzz                  2.8.1                h83ec7ef_0    conda-forge
+hdf5                      1.12.1               h70be1eb_2  
+
+jupyter                   1.0.0            py38h06a4308_8  
+
+libgcc                    7.2.0                h69d50b8_2  
+
+python                    3.8.13               h12debd9_0  
+
+pytorch                   1.6.0               py3.8_cpu_0  [cpuonly]  pytorch
+
+numpy                     1.23.1           py38h6c91a56_0  
+numpy-base                1.23.1           py38ha15fc14_0  
+opencv                    4.5.3            py38h578d9bd_3    conda-forge
+opencv-python             4.6.0.66                 pypi_0    pypi
+
+```
+
+* TOTRY
+```
+install deftaul version for 
+1. python, pytorch and albumentations 
+2. install h5py
+test?
+```
 
 # Sun 11 Sep 12:33:26 BST 2022
 TRY:`   - h5py=2.* #=3.* # current version 3.6.0`
@@ -13,13 +118,6 @@ ImportError: /home/mx19/anaconda3/envs/transformersVE/bin/../lib/libstdc++.so.6:
 
 ```
 
-TODO:
-create env with (and default dependnecies verios):
-```
-Pytorch 1.6.0
-Python 3.8.6
-
-```
 
 ## Sun 11 Sep 11:50:09 BST 2022
 

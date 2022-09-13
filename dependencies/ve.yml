@@ -16,15 +16,15 @@ channels:
   - anaconda # seaborn; pandas; scikit-learn; jupyter; h5py; libgcc
   - conda-forge # albumentations; torchinfo; ipywidgets; pytables
 dependencies:
-  - python=3.9
-  - pytorch #=1.9.* #1.9.* with cudatoolkit=11.1#OK
+  - python=3.8
+  - pytorch=1.6 #=1.9.* #1.9.* with cudatoolkit=11.1#OK
   - torchvision #=0.10.0
   - cudatoolkit #=11.4.*
   - matplotlib
   - numpy
   - pip
-  - h5py=3.* #=3.* # current version 3.6.0
-  - hdf5
+  - h5py #=3.* #=3.* # current version 3.6.0 #default 3.7.0
+  - hdf5 #default 1.12.1
   - albumentations #1.2.1 installed on Thu 21 Jul 21:45:34 BST 2022
   #albumentations 1.1.0
   #Python and library versions: Python 3.9.5 (default, Jun 23 2021, 15:01:51) [GCC 8.3.0], numpy 1.19.5, pillow-simd 7.0.0.post3, opencv-python 4.5.3.56, scikit-image 0.18.3, scipy 1.7.1.
