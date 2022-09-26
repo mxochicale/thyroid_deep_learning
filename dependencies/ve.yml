@@ -1,5 +1,5 @@
 ## USAGE
-## cd ../dependencies/virtual-environment
+## cd ../dependencies
 ## conda update -n base -c defaults conda  ## UPDATE CONDA
 ## conda list -n transformersVE # show list of installed packages
 ## conda env create -f ve.yml   		    ## INSTALL
@@ -16,8 +16,8 @@ channels:
   - anaconda # seaborn; pandas; scikit-learn; jupyter; h5py; libgcc
   - conda-forge # albumentations; torchinfo; ipywidgets; pytables
 dependencies:
-  - python=3.8
-  - pytorch=1.6 #=1.9.* #1.9.* with cudatoolkit=11.1#OK
+  - python #=3.8#REPOVER
+  - pytorch #=1.6#REPOVER #=1.9.* #1.9.* with cudatoolkit=11.1#OK
   - torchvision #=0.10.0
   - cudatoolkit #=11.4.*
   - matplotlib

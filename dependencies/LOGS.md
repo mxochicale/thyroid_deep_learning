@@ -1,3 +1,47 @@
+# Mon 26 Sep 12:00:38 BST 2022
+
+* tried to install default package versions then install albumentations
+
+``` 
+(transformersVE) mx19@sie133-lap:~/repositories/thyroid_deep_learning/dependencies$ conda activate transformersVE
+(transformersVE) mx19@sie133-lap:~/repositories/thyroid_deep_learning/dependencies$ python testing_versions.py
+python: 3.10.4 | packaged by conda-forge | (main, Mar 24 2022, 17:38:57) [GCC 10.3.0]
+opencv: 4.6.0
+torch: 1.12.1
+torch cuda_is_available: True
+torch cuda version: 11.3
+torch cuda.device_count  1
+h5py: 3.6.0
+(transformersVE) mx19@sie133-lap:~/repositories/thyroid_deep_learning/dependencies$ python testing_versions.py
+Traceback (most recent call last):
+  File "/home/mx19/repositories/thyroid_deep_learning/dependencies/testing_versions.py", line 7, in <module>
+    import albumentations
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.10/site-packages/albumentations/__init__.py", line 5, in <module>
+    from .augmentations import *
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.10/site-packages/albumentations/augmentations/__init__.py", line 2, in <module>
+    from .blur.functional import *
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.10/site-packages/albumentations/augmentations/blur/__init__.py", line 1, in <module>
+    from .functional import *
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.10/site-packages/albumentations/augmentations/blur/functional.py", line 9, in <module>
+    from albumentations.augmentations.geometric.functional import scale
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.10/site-packages/albumentations/augmentations/geometric/__init__.py", line 1, in <module>
+    from .functional import *
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.10/site-packages/albumentations/augmentations/geometric/functional.py", line 6, in <module>
+    import skimage.transform
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.10/site-packages/skimage/transform/__init__.py", line 4, in <module>
+    from .radon_transform import (radon, iradon, iradon_sart,
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.10/site-packages/skimage/transform/radon_transform.py", line 5, in <module>
+    from scipy.fft import fft, ifft, fftfreq, fftshift
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.10/site-packages/scipy/fft/__init__.py", line 91, in <module>
+    from ._helper import next_fast_len
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.10/site-packages/scipy/fft/_helper.py", line 3, in <module>
+    from ._pocketfft import helper as _helper
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.10/site-packages/scipy/fft/_pocketfft/__init__.py", line 3, in <module>
+    from .basic import *
+  File "/home/mx19/anaconda3/envs/transformersVE/lib/python3.10/site-packages/scipy/fft/_pocketfft/basic.py", line 6, in <module>
+    from . import pypocketfft as pfft
+ImportError: /home/mx19/anaconda3/envs/transformersVE/bin/../lib/libstdc++.so.6: version `GLIBCXX_3.4.30' not found (re
+```
 
 # Mon 12 Sep 15:44:25 BST 2022
 
