@@ -1,3 +1,21 @@
+# Fri  9 Dec 19:34:44 GMT 2022
+Seems basic dependecies are installed:
+
+```
+$ cd $HOME/repositories/github-projects/thyroid_deep_learning/dependencies
+$ conda activate transformersVE
+$ python testing_versions.py 
+python: 3.10.8 (main, Nov 24 2022, 14:13:03) [GCC 11.2.0]
+opencv: 4.6.0
+torch: 1.11.0
+torch cuda_is_available: True
+torch cuda version: 11.3
+torch cuda.device_count  1
+h5py: 3.6.0
+albumentations: 1.3.0
+```
+
+
 # Mon 26 Sep 12:00:38 BST 2022
 
 * tried to install default package versions then install albumentations

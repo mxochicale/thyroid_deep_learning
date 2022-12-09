@@ -3,47 +3,47 @@
 ## conda update -n base -c defaults conda  ## UPDATE CONDA
 ## conda list -n transformersVE # show list of installed packages
 ## conda env create -f ve.yml   		    ## INSTALL
-## conda env update --file ve.yml --prune  	## UPDATE
+## conda env update -f ve.yml --prune  	## UPDATE
 ## conda activate transformersVE			    ## ACTIVATE
 ## conda remove -n transformersVE --all   ## REMOVE
 
+## QUICK TEST OF THE AVAILABILITY OF CUDA
+## conda activate *VE
+## python
+## import torch
+## torch.cuda.is_available()
+
 name: transformersVE
 channels:
-  - pytorch # https://anaconda.org/pytorch/torchvision
-  #- nvidia
   - defaults
-  #- jmcmurray #https://anaconda.org/jmcmurray/json
+  - pytorch # https://anaconda.org/pytorch/torchvision
+  - nvidia
   - anaconda # seaborn; pandas; scikit-learn; jupyter; h5py; libgcc
   - conda-forge # albumentations; torchinfo; ipywidgets; pytables
 dependencies:
-  - python #=3.8#REPOVER
-  - pytorch #=1.6#REPOVER #=1.9.* #1.9.* with cudatoolkit=11.1#OK
-  - torchvision #=0.10.0
-  - cudatoolkit #=11.4.*
+  - pytorch=1.11.*
+  - torchvision=0.12.*
+  - torchinfo
+  - python=3.10.*
+  - cudatoolkit=11.*.*
   - matplotlib
   - numpy
-  - pip
-  - h5py #=3.* #=3.* # current version 3.6.0 #default 3.7.0
-  - hdf5 #default 1.12.1
-  - albumentations #1.2.1 installed on Thu 21 Jul 21:45:34 BST 2022
-  #albumentations 1.1.0
-  #Python and library versions: Python 3.9.5 (default, Jun 23 2021, 15:01:51) [GCC 8.3.0], numpy 1.19.5, pillow-simd 7.0.0.post3, opencv-python 4.5.3.56, scikit-image 0.18.3, scipy 1.7.1.
-  #https://github.com/albumentations-team/albumentations#benchmarking-results
+  - notebook
+  - jupyter
+  - jupyter_contrib_nbextensions 
+  - h5py=3.6.0 #default 3.7.0
+  # - hdf5 #default 1.12.1
   - pandas
   - pytables
-  - libgcc #7.2.0 > libgcc-ng 11.2.0
+  - pillow
+  # - libgcc #7.2.0 > libgcc-ng 11.2.0
   #- json
   #- pyyaml
   #- tqdm
-  - pillow
-  - notebook #=6.*
-  #- jupyter_contrib_nbextensions # A good overview over other extensions: https://towardsdatascience.com/jupyter-notebook-extensions-517fa69d2231
-  - jupyter
   #- seaborn=0.11.1 # 0.11.2 will creat https://github.com/Baukebrenninkmeijer/table-evaluator/issues/26
-  #- pandas=1.*
-  - torchinfo
   #- ipywidgets
-  ##ERROR- scikit-learn=* #https://anaconda.org/anaconda/scikit-learn SOLUTION within the VE: conda install -n VE_NAME scikit-learn
+  #- pandas-datareader
+  - pip
   - pip:
-     #- pydicom
-     - opencv-python
+    - opencv-python
+    - albumentations

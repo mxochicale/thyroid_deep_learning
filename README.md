@@ -11,11 +11,19 @@ Radiology: Artificial Intelligence 2022 4:3
 
 Published Online: May 11 2022  
 DOI: https://doi.org/10.1148/ryai.210174  
-google-scholar: https://scholar.google.com/scholar?oi=bibs&hl=en&cluster=3541439675105718208 
+Citations on google-scholar: https://scholar.google.com/scholar?oi=bibs&hl=en&cluster=3541439675105718208 
 
 ## Dataset
 Download Thyroid Ultrasound Cine-clip, containing ultrasound cine-clip images, radiologist-annotated segmentations, patient demographics, lesion size and location, TI-RADS descriptors, and histopathological diagnoses at https://stanfordaimi.azurewebsites.net/datasets/a72f2b02-7b53-4c5d-963c-d7253220bfd5   
 See further details [data](data).
+
+## Clone repository
+After generating your SSH keys as suggested [here](https://github.com/mxochicale/tools/blob/main/github/SSH.md).
+You can then clone the repository by typing (or copying) the following line in a terminal at your selected path in your machine:
+```
+mkdir $HOME/repositories/github-projects && cd $HOME/repositories/github-projects
+git clone git@github.com:mxochicale/thyroid_deep_learning.git
+```
 
 ## Files
 **configtest.yaml:**
@@ -85,15 +93,14 @@ Function analyze_test_outputs for calculating AUROC and other stats and saving m
 
 
 ## How to run
-1. Edit the parser arguments in cnn_main.py and transformer_main.py with your own home directory and paths to images, labels and masks.
+1. Edit the parser arguments in [cnn_main.py](cnn_main.py) and [transformer_main.py](transformer_main.py) with your own home directory and paths to images, labels and masks.
 
-* `cnn_main.py`
-Run this file to train and test CNN (MobileNet-v2) model and output CNN model predictions to cnn_test_all_outs[cvphase].csv
+* Run [cnn_main.py](cnn_main.py) to train and test CNN (MobileNet-v2) model and output CNN model predictions to cnn_test_all_outs[cvphase].csv
 ```
-cd $HOME/repositories/thyroid_deep_learning/
-export PYTHONPATH=$HOME/repositories/thyroid_deep_learning/ #set PYTHONPATH environment variable
+cd $HOME/repositories/github-projects/thyroid_deep_learning/
+export PYTHONPATH=$HOME/repositories/github-projects/thyroid_deep_learning/ #set PYTHONPATH environment variable
 conda activate transformersVE
-python cnn_main.py --project_home_dir $HOME/repositories/thyroid_deep_learning
+python cnn_main.py --project_home_dir $HOME/repositories/github-projects/thyroid_deep_learning/
 ```
 
 * `transformer_main.py` 
@@ -108,20 +115,23 @@ $ nvidia-smi -q
 
 ==============NVSMI LOG==============
 
-Timestamp                                 : Thu Jul 21 21:52:47 2022
-Driver Version                            : 470.129.06
-CUDA Version                              : 11.4
+Timestamp                                 : Fri Dec  9 19:10:10 2022
+Driver Version                            : 520.61.05
+CUDA Version                              : 11.8
 
 Attached GPUs                             : 1
 GPU 00000000:01:00.0
-    Product Name                          : NVIDIA GeForce RTX 3080 Laptop GPU
-    Product Brand                         : GeForce
-    Display Mode                          : Enabled
-    Display Active                        : Enabled
-    Persistence Mode                      : Disabled
+    Product Name                          : NVIDIA RTX A2000 8GB Laptop GPU
+    Product Brand                         : NVIDIA RTX
+    Product Architecture                  : Ampere
+    Display Mode                          : Disabled
+    Display Active                        : Disabled
+    Persistence Mode                      : Enabled
 
-FB Memory
-        Total                             : 16116 MiB
+
+    FB Memory Usage
+        Total                             : 8192 MiB
+
 ``` 
 
 ### Software
@@ -137,23 +147,22 @@ albumentations
 * [Current] machine OS:
 ```
 $ hostnamectl
- Operating System: Ubuntu 20.04.3 LTS
-            Kernel: Linux 5.15.0-41-generic
-      Architecture: x86-64
+Operating System: Ubuntu 22.04.1 LTS              
+          Kernel: Linux 5.15.0-56-generic
+    Architecture: x86-64
 ```
 
 ```
-$ cd $HOME/repositories/thyroid_deep_learning/dependencies
+$ cd $HOME/repositories/github-projects/thyroid_deep_learning/dependencies
 $ conda activate transformersVE
-$ python testing_versions.py
 $ python testing_versions.py 
-python: 3.9.13 (main, Aug 25 2022, 23:26:10) 
-[GCC 11.2.0]
+python: 3.10.8 (main, Nov 24 2022, 14:13:03) [GCC 11.2.0]
 opencv: 4.6.0
-torch: 1.12.1
-h5py: 3.7.0
-cuda_is_available: True
-cuda version: 11.3
-cuda.device_count  1
+torch: 1.11.0
+torch cuda_is_available: True
+torch cuda version: 11.3
+torch cuda.device_count  1
+h5py: 3.6.0
+albumentations: 1.3.0
 ```
-See [packages versions](dependencies/) for further details for the conda setup. 
+See [packages versions and conda setup](dependencies/) for further details. 

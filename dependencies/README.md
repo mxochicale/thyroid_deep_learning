@@ -3,7 +3,7 @@
 ## Sort of automatic creation 
 
 ### Creation
-Using `env.yml` create an environment
+Using `ve.yml` create an environment
 ```
 conda env create -f ve.yml
 conda activate $VE
