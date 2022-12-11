@@ -93,18 +93,18 @@ Function analyze_test_outputs for calculating AUROC and other stats and saving m
 
 
 ## How to run
-1. Edit the parser arguments in [cnn_main.py](cnn_main.py) and [transformer_main.py](transformer_main.py) with your own home directory and paths to images, labels and masks.
+Edit the parser arguments in [cnn_main.py](cnn_main.py) and [transformer_main.py](transformer_main.py) with your own home directory and paths to images, labels and masks.
 
-* Run [cnn_main.py](cnn_main.py) to train and test CNN (MobileNet-v2) model and output CNN model predictions to cnn_test_all_outs[cvphase].csv
+* Run [cnn_main.py](cnn_main.py) to train and test CNN (MobileNet-v2) model and output CNN model predictions to `cnn_test_all_outs[cvphase].csv`
 ```
 cd $HOME/repositories/github-projects/thyroid_deep_learning/
 export PYTHONPATH=$HOME/repositories/github-projects/thyroid_deep_learning/ #set PYTHONPATH environment variable
 conda activate transformersVE
 python cnn_main.py --project_home_dir $HOME/repositories/github-projects/thyroid_deep_learning/
+
 ```
 
-* `transformer_main.py` 
-Run this file to train and test Transformer model (on extracted CNN features) and output CNN+Transformer model predictions to transformer_test_all_outs[cvphase].csv
+* Run [transformer_main.py](transformer_main.py) to train and test Transformer model (on extracted CNN features) and output CNN+Transformer model predictions to `transformer_test_all_outs[cvphase].csv`
 
 ## Dependencies
 ### Hardware:

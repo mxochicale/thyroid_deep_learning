@@ -7,9 +7,6 @@ The dataset consists of ultrasound cine-clip images, radiologist-annotated segme
 
 To download create an account in the StanfordAIMI [site](https://aimiorg.b2clogin.com/aimiorg.onmicrosoft.com/b2c_1_signin_signup/oauth2/v2.0/authorize?response_type=id_token&scope=openid%20profile&client_id=e1963fdc-4746-4bc1-bc80-84dcc31df4d2&redirect_uri=https%3A%2F%2Fstanfordaimi.azurewebsites.net%2F&state=eyJpZCI6IjY2NWYxYmVjLTljMDItNGEzMS1hMzAzLWYwNzE5OTU2MGUwMiIsInRzIjoxNjYxMDU5Mzg5LCJtZXRob2QiOiJyZWRpcmVjdEludGVyYWN0aW9uIn0%3D&nonce=0b220da4-dab0-479f-8feb-1be6c5e1bf9c&client_info=1&x-client-SKU=MSAL.JS&x-client-Ver=1.3.2&client-request-id=56bf75bf-9908-4b58-9e18-2ba8fce13fc4&response_mode=fragment)
 
-## License
-[Stanford University Dataset Research Use Agreement](LICENSE)
-
 ## Datafiles tree
 ```
 $ tree -s
@@ -21,9 +18,20 @@ $ tree -s
 0 directories, 3 files
 ```
 
+## hdf5 files
+Extract hdf5 files from `dataset.hdf5`:
+* "--imgpath", type=str, default="/path/to/imgs.hdf5"
+* "--maskpath", type=str, default="/path/to/masks.hdf5",
+* "--labelpath", type=str, default="/path/to/labels.csv"
+```
+@mobilenet_dataset.py:
+L40:    colnames = ['Labels for each frame', 'Annot_IDs', 'size_A', 'size_B', 'size_C', 'location_r_l_', 'study_dttm', 'age', 'sex', 'final_diagnoses', 'ePAD ID', 'foldNum']
+L41:    label_data = pd.read_csv(labelpath, names=colnames)
+```
+
 ## Notebooks to check data
 ``` 
-cd $HOME/repositories/thyroid_deep_learning/data
+cd $HOME/repositories/github-projects/thyroid_deep_learning/data
 conda activate transformersVE
 jupyter notebook
 ```
@@ -34,3 +42,6 @@ When copying dataset.hdf5 to other drive, I get:
 Error splicing file: File too large
 ```
 POTENTIAL_SOLUTION: https://askubuntu.com/questions/348888/how-do-i-solve-error-splicing-files 
+
+## License
+[Stanford University Dataset Research Use Agreement](LICENSE)

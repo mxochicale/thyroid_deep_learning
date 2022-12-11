@@ -32,7 +32,7 @@ import random
 
 #data aug
 from albumentations.pytorch import ToTensorV2
-from albumentations.pytorch import ToTensor
+# from albumentations.pytorch import ToTensor
 import albumentations as A
 
 import torch.optim as optim
