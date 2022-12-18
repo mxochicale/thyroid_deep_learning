@@ -1,4 +1,4 @@
-print("\nTHYROID DATASET\n")
+# print("\nTHYROID DATASET\n")
 import pandas as pd
 from PIL import Image
 import os
@@ -15,7 +15,7 @@ import random
 
 #data aug
 from albumentations.pytorch import ToTensorV2
-from albumentations.pytorch import ToTensor
+# from albumentations.pytorch import ToTensor
 import albumentations as A
 
 import torch.optim as optim
@@ -28,12 +28,14 @@ from sklearn.utils import resample
 import mobilenet_preprocess
 
 def load_datasets_new(project_home_dir, labelpath, phase, cv_phase, allimgs, frametype):
-    """Load images and labels for given phase and cvphase, stack 3 different frames based on frametype (adjacent, equally spaced).
+    """
+    Load images and labels for given phase and cvphase, stack 3 different frames based on frametype (adjacent, equally spaced).
     Keyword arguments:
     phase -- train, val, trainval or test (which data to use)
     cv_phase -- cross validation fold (0 to 4)
     frametype -- adjacent, equalspaced (how to stack frames)
-    Return (for given cross validation fold and train/val/trainval/test phase) lists of all images (stacked), labels, patient IDs and frame numbers within patient."""
+    Return (for given cross validation fold and train/val/trainval/test phase) lists of all images (stacked), labels, patient IDs and frame numbers within patient.
+    """
 
     print("passed in list allimgs:", np.shape(allimgs))
     
@@ -234,9 +236,9 @@ def load_datasets_single_frame(project_home_dir, labelpath, phase, cv_phase, all
     
     foldNums = label_data.foldNum.tolist() #list of what folder for train test split
     
-    annot_ids.pop(0)
-    labels.pop(0)
-    foldNums.pop(0)
+    annot_ids.pop(0) #take out title row
+    labels.pop(0) #take out title row
+    foldNums.pop(0) #take out title row
     
     correct_order_labels = []
     
@@ -368,15 +370,26 @@ class DatasetThyroid3StackedNew(data.Dataset):
         
         h5py.File(imgpath).keys()
         colnames = ['Labels for each frame', 'Annot_IDs', 'size_A', 'size_B', 'size_C', 'location_r_l_', 'study_dttm', 'age', 'sex', 'final_diagnoses', 'ePAD ID', 'foldNum']
-        imgs, largestpatinds = mobilenet_preprocess.transform_and_crop_largest(h5py.File(imgpath)['img'], h5py.File(maskpath)['img'], pd.read_csv(labelpath, names=colnames).Annot_IDs.tolist())
+        imgs, largestpatinds = mobilenet_preprocess.transform_and_crop_largest(h5py.File(imgpath)['img'],
+                                                                               h5py.File(maskpath)['img'],
+                                                                               pd.read_csv(labelpath, names=colnames).Annot_IDs.tolist())
 
         self.phase = phase
         
         print("frametype", frametype)
         if(frametype == "singleframe"):
-            self.imgs, self.all_labels, self.all_annot_ids, self.all_frame_nums = load_datasets_single_frame(project_home_dir, labelpath, phase, cvphase, imgs, largestpatinds)
+            self.imgs, self.all_labels, self.all_annot_ids, self.all_frame_nums = load_datasets_single_frame(project_home_dir,
+                                                                                                             labelpath, phase,
+                                                                                                             cvphase,
+                                                                                                             imgs,
+                                                                                                             largestpatinds)
         if(frametype == "adjacent" or frametype == "equalspaced"):
-            self.imgs, self.all_labels, self.all_annot_ids, self.all_frame_nums = load_datasets_new(project_home_dir, labelpath, phase, cvphase, imgs, frametype)
+            self.imgs, self.all_labels, self.all_annot_ids, self.all_frame_nums = load_datasets_new(project_home_dir,
+                                                                                                    labelpath,
+                                                                                                    phase,
+                                                                                                    cvphase,
+                                                                                                    imgs,
+                                                                                                    frametype)
         print("done reading in images and labels for", phase, "!!!\n\n")
     
         imgs = []
